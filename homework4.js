@@ -1,31 +1,30 @@
 //1.STAR TRIANGLE REVERESED
-const starConcut = function(height, spaceCountNumber) {
+const starConcut = function(starSpace, spaceStarCountNumber) {
     let str = "";
-    while(spaceCountNumber > 0) {
-      str = str + height;
-      spaceCountNumber = spaceCountNumber - 1;
+    while(spaceStarCountNumber > 0) {
+      str = str + starSpace;
+      spaceStarCountNumber = spaceStarCountNumber - 1;
     }
     return str;
   }
   
-  const typeStr = function(spaceCount, starNumber){
-    console.log( starConcut(" ", spaceCount) + starConcut("*", starNumber));
+  const typeStr = function(spaceCount, starCount){
+    console.log( starConcut(" ", spaceCount) + starConcut("*", starCount));
     
   }
   
   const makeTriangle = function(height) {
     let starNumber = (2 * height - 1);
-    let spaceCount = 0;
+    let spaceNumber = 0;
     
     while(0 < height) {
-      typeStr(spaceCount, starNumber);
-      height = height -1;
-      starNumber = starNumber -2;
-      spaceCount = spaceCount + 1;
+      typeStr(spaceNumber, starNumber);
+      height = height - 1;
+      starNumber = starNumber - 2;
+      spaceNumber = spaceNumber + 1;
     }
   }
   makeTriangle(5);
-
 //2.FIND MAX MIN
   const findMinMax = function findMinMax(arr, bool) {
     let maxmin = arr[0];
@@ -105,53 +104,57 @@ const forEach = function (arr, func){
 
  //6. REVERSE STRING
       const reverse = function reverse(str){
-        let inx= str.length - 1;
+        let index= str.length - 1;
        let newStr = "";
-       console.log(inx);
-       while(inx >= 0){
-         newStr = newStr + str[inx];
-         inx = inx - 1;
+       while(index >= 0){
+         newStr = newStr + str[index];
+         index = index - 1;
        }
        return newStr;
        
      }
      console.log(reverse('abcd'));
 
-//7.CHECKERBOARD RIGHT VERSION 
-const func = function(a, count){
+//7.CHECKERBOARD
+const startingStar = function(symbol, count){
     let str = "*";
-    while(count > 0){
-      str = str + a + "*";
+    while(count > 1){
+      str = str + symbol + "*";
       count = count - 1;
     }
     return str;
   }
-  const func1 = function(a, count) {
+  const startingSpace = function(symbol, count) {
     let str = " ";
-    while(count >= 0){
-      str = str + a + " ";
+    while(count > 0){
+      str = str + symbol + " ";
       count = count - 1;
     }
     return str;
   }
-  const func2 = function(s){
-    console.log(func1("*", s));
+  const typeStartingSpace = function(height){
+    console.log(startingSpace("*", height));
   }
-  const func3 = function(s){
-    console.log(func(" ", s));
+  const typeStartingStar = function(height){
+    console.log(startingStar(" ", height));
   }
-  const func4 = function(s) {
-    let r = s;
-    while(r >= 0){
-    if( r % 2 === 1) {
-      func3(s);
+  const starSpacetype= function(height) {
+    let heightChange = height;
+    while(heightChange >= 0){
+     if( heightChange % 2 === 1) {
+      typeStartingStar(height);
+     }
+     else{
+      typeStartingSpace(height);
+     }
+    heightChange = heightChange - 1;
+    
     }
-    else{
-      func2(s);
-    }
-    r--
-    ;}}
-    func4(4);
- 
+  }
+    starSpacetype(5);
+
+
+
+
 
  
